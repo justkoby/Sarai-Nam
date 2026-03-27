@@ -32,13 +32,13 @@ const Navbar = () => {
       </div>
       <div className="nav-menu-container" style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
         <button className="nav-menu-btn" style={{
+          display: 'none', // Hide hamburger for now
           background: 'white',
           border: 'none',
           cursor: 'pointer',
           width: '50px',
           height: '50px',
           borderRadius: '50%',
-          display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',

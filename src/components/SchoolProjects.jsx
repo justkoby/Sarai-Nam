@@ -37,13 +37,6 @@ const SchoolProjects = () => {
                 }}>
                     Highlights and Moments
                 </h1>
-                <p style={{
-                    fontSize: '28px',
-                    fontWeight: '500',
-                    color: '#333'
-                }}>
-                    Highlighted Work:
-                </p>
             </div>
 
             <div style={{
@@ -60,7 +53,7 @@ const SchoolProjects = () => {
                             position: 'relative',
                             borderRadius: '24px',
                             overflow: 'hidden',
-                            aspectRatio: '3/4',
+                            aspectRatio: '9/16',
                             boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
                             cursor: 'pointer',
                             transition: 'transform 0.3s ease',
@@ -69,15 +62,27 @@ const SchoolProjects = () => {
                         onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
                         onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                     >
-                        <iframe 
-                            src={project.video} 
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                border: 'none'
-                            }}
-                            allow="autoplay"
-                        ></iframe>
+                        {/* Wrapper to hide Google Drive UI (pop-out button) */}
+                        <div style={{
+                            position: 'absolute',
+                            top: '-50px', // Offset to hide top bar
+                            left: '-10px',
+                            right: '-10px',
+                            bottom: '-50px',
+                            pointerEvents: 'none' // Allow title click
+                        }}>
+                            <iframe 
+                                src={project.video} 
+                                style={{
+                                    width: '100%',
+                                    height: 'calc(100% + 100px)', // Compensate for top/bottom offset
+                                    border: 'none',
+                                    pointerEvents: 'auto'
+                                }}
+                                allow="autoplay"
+                            ></iframe>
+                        </div>
+                        
                         {/* Gradient Overlay */}
                         <div style={{
                             position: 'absolute',
