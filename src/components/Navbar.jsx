@@ -15,9 +15,10 @@ const Navbar = () => {
       padding: '0 4rem',
       zIndex: 1000,
       backgroundColor: 'transparent',
+      paddingTop: '20px', // Prevent logo cutoff
     }}>
       <div className="nav-spacer" style={{ flex: 1 }}></div>
-      <div className="nav-logo-container" style={{ flex: 2, display: 'flex', justifyContent: 'center' }}>
+      <div className="nav-logo-container" style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
         <img 
           src={logo} 
           className="nav-logo"
@@ -59,22 +60,27 @@ const Navbar = () => {
         @media (max-width: 768px) {
           .navbar {
             padding: 0 1.5rem !important;
-            height: 80px !important;
+            padding-top: 20px !important;
+            height: 100px !important;
           }
           .nav-logo {
             width: 120px !important;
           }
-          .nav-spacer {
-            display: none !important;
-          }
           .nav-logo-container {
-            justify-content: flex-start !important;
+            flex: 1 !important;
+            justify-content: center !important;
+            display: flex !important;
+          }
+          .nav-spacer {
+            display: block !important;
             flex: 1 !important;
           }
           .nav-menu-container {
             flex: 1 !important;
+            display: flex !important;
           }
-          .nav-menu-btn {
+        }
+  .nav-menu-btn {
             width: 40px !important;
             height: 40px !important;
           }
