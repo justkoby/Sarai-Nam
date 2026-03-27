@@ -64,20 +64,33 @@ const SchoolProjects = () => {
                             aspectRatio: '3/4',
                             boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
                             cursor: 'pointer',
-                            transition: 'transform 0.3s ease'
+                            transition: 'transform 0.3s ease',
+                            backgroundColor: '#000'
                         }}
                         onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
                         onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                     >
-                        <img 
-                            src={project.image} 
-                            alt={project.title}
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover'
-                            }}
-                        />
+                        {project.title === "Meet Sarai" ? (
+                            <iframe 
+                                src="https://drive.google.com/file/d/1Wj-IUqX2DmSpsKvoiljpRlTLYe1Kve5p/preview" 
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    border: 'none'
+                                }}
+                                allow="autoplay"
+                            ></iframe>
+                        ) : (
+                            <img 
+                                src={project.image} 
+                                alt={project.title}
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover'
+                                }}
+                            />
+                        )}
                         {/* Gradient Overlay */}
                         <div style={{
                             position: 'absolute',
@@ -89,7 +102,8 @@ const SchoolProjects = () => {
                             display: 'flex',
                             alignItems: 'flex-end',
                             padding: '30px',
-                            transition: 'height 0.3s ease'
+                            transition: 'height 0.3s ease',
+                            pointerEvents: 'none'
                         }}>
                             <h3 style={{
                                 color: 'white',
@@ -113,13 +127,9 @@ const SchoolProjects = () => {
                         font-size: 32px !important;
                         text-align: center;
                     }
-                    #school-projects div[style*="grid-template-columns: repeat(3, 1fr)"] {
+                    #school-projects div[style*="grid-template-columns"] {
                         grid-template-columns: 1fr !important;
                         gap: 20px !important;
-                    }
-                    #school-projects p[style*="opacity: 0.8"] {
-                        text-align: center !important;
-                        margin-bottom: 40px !important;
                     }
                 }
             `}</style>

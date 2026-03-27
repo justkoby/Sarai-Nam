@@ -23,7 +23,7 @@ const About = () => {
                 }}>
                     Hi, I'm <span style={{ color: '#cc4d87' }}>Sarai</span>.
                 </h1>
-                
+
                 <p style={{
                     fontSize: '18px',
                     lineHeight: '1.7',
@@ -41,7 +41,7 @@ const About = () => {
                     I am particularly driven by public health initiatives and believe in the power of media and communication to educate communities and advance health awareness.
                 </p>
 
-                <a 
+                <a
                     href={resumePdf}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -69,10 +69,10 @@ const About = () => {
                         if (icon) icon.style.fill = '#cc4d87';
                     }}
                 >
-                    <span style={{ 
-                        fontSize: '18px', 
-                        fontWeight: '600', 
-                        color: '#cc4d87' 
+                    <span style={{
+                        fontSize: '18px',
+                        fontWeight: '600',
+                        color: '#cc4d87'
                     }}>More about me</span>
                     <div className="circle" style={{
                         width: '40px',
@@ -106,15 +106,15 @@ const About = () => {
                     transform: 'rotate(4deg)', // Tilted image
                     maxWidth: '400px'
                 }}>
-                    <img 
-                        src={saraiNew} 
-                        alt="Sarai" 
+                    <img
+                        src={saraiNew}
+                        alt="Sarai"
                         style={{
                             width: '100%',
                             height: 'auto',
                             borderRadius: '8px',
                             display: 'block'
-                        }} 
+                        }}
                     />
                 </div>
             </div>
