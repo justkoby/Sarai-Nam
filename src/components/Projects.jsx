@@ -163,16 +163,17 @@ const Projects = () => {
                                 {typeof videoSrc === 'string' && videoSrc.includes('drive.google.com') ? (
                                     <div style={{
                                         position: 'absolute',
-                                        top: '-50px',
-                                        left: '-5px',
-                                        right: '-5px',
-                                        bottom: '-50px'
+                                        top: '-5%',
+                                        bottom: '-5%',
+                                        left: '-70%',
+                                        width: '240%',
+                                        height: '110%',
                                     }}>
                                         <iframe
                                             src={videoSrc}
                                             style={{
                                                 width: '100%',
-                                                height: 'calc(100% + 100px)',
+                                                height: '100%',
                                                 border: 'none'
                                             }}
                                             allow="autoplay"

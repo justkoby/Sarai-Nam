@@ -18,7 +18,7 @@ const Socials = () => {
 
     return (
         <section id="socials" style={{
-            padding: '100px 10%',
+            padding: '100px 10% 0',
             backgroundColor: '#fffafb',
             fontFamily: "'Funnel Display', sans-serif"
         }}>
@@ -140,7 +140,7 @@ const Socials = () => {
             <style>{`
                 @media (max-width: 1024px) {
                     #socials {
-                        padding: 60px 5% !important;
+                        padding: 60px 5% 0 !important;
                     }
                     #socials h1 {
                         font-size: 32px !important;

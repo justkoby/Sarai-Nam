@@ -90,15 +90,23 @@ const Internship = () => {
                     aspectRatio: '9/16',
                     backgroundColor: '#000'
                 }}>
-                    <iframe
-                        src="https://drive.google.com/file/d/1exMaunchPuA_WyiHSM8uAd2--YFVgXft/preview"
-                        style={{
-                            width: '100%',
-                            height: '100%',
-                            border: 'none'
-                        }}
-                        allow="autoplay"
-                    ></iframe>
+                    <div style={{
+                        position: 'absolute',
+                        top: '-5%',
+                        left: '-70%',
+                        width: '240%',
+                        height: '110%',
+                    }}>
+                        <iframe
+                            src="https://drive.google.com/file/d/1exMaunchPuA_WyiHSM8uAd2--YFVgXft/preview"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                border: 'none'
+                            }}
+                            allow="autoplay"
+                        ></iframe>
+                    </div>
                 </div>
 
                 {/* Text Content */}
