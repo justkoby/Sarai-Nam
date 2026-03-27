@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Funnel Display', sans-serif;
+  overflow-x: hidden;
+}
+
+.app {
+  width: 100%;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
