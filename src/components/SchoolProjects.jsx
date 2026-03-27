@@ -1,19 +1,18 @@
 import React from 'react';
-import sariaImage3 from '../assets/saria-image-3.webp';
 
 const SchoolProjects = () => {
     const projects = [
         {
-            title: "Meet Sarai",
-            image: sariaImage3
+            title: "Hair day",
+            video: "https://drive.google.com/file/d/1Wj-IUqX2DmSpsKvoiljpRlTLYe1Kve5p/preview"
         },
         {
-            title: "Juneteenth Events in Philly 2024",
-            image: sariaImage3
+            title: "2024 Orientation",
+            video: "https://drive.google.com/file/d/1b4pASTv-yUaAnCY4nVn66pWKX84vWXfY/preview"
         },
         {
-            title: "Freedom Day: June Teenth",
-            image: sariaImage3
+            title: "SXSW 2025",
+            video: "https://drive.google.com/file/d/1JoUn9-Uf4ONNfWNBjgbMS_RxOkcBT1AT/preview"
         }
     ];
 
@@ -36,7 +35,7 @@ const SchoolProjects = () => {
                     color: '#1a1a1a',
                     marginBottom: '10px'
                 }}>
-                    School Projects & Writing
+                    Highlights and Moments
                 </h1>
                 <p style={{
                     fontSize: '28px',
@@ -70,27 +69,15 @@ const SchoolProjects = () => {
                         onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
                         onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                     >
-                        {project.title === "Meet Sarai" ? (
-                            <iframe 
-                                src="https://drive.google.com/file/d/1Wj-IUqX2DmSpsKvoiljpRlTLYe1Kve5p/preview" 
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    border: 'none'
-                                }}
-                                allow="autoplay"
-                            ></iframe>
-                        ) : (
-                            <img 
-                                src={project.image} 
-                                alt={project.title}
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'cover'
-                                }}
-                            />
-                        )}
+                        <iframe 
+                            src={project.video} 
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                border: 'none'
+                            }}
+                            allow="autoplay"
+                        ></iframe>
                         {/* Gradient Overlay */}
                         <div style={{
                             position: 'absolute',
