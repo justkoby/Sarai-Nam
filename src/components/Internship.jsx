@@ -101,17 +101,19 @@ const Internship = () => {
                         }}>
                             {/* Play Button Overlay */}
                             <div style={{
-                                width: '70px',
-                                height: '70px',
-                                backgroundColor: 'rgba(255, 255, 255, 0.3)',
-                                backdropFilter: 'blur(5px)',
+                                width: '60px',
+                                height: '60px',
+                                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                                backdropFilter: 'blur(8px)',
                                 borderRadius: '50%',
                                 display: 'flex',
                                 justifyContent: 'center',
                                 alignItems: 'center',
-                                border: '2px solid white'
-                            }}>
-                                <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                                border: '1.5px solid rgba(255, 255, 255, 0.8)',
+                                transition: 'all 0.3s ease',
+                                boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
+                            }} className="play-button-overlay">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
                                     <path d="M8 5v14l11-7z" />
                                 </svg>
                             </div>
