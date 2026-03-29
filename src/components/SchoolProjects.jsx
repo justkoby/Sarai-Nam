@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import hairDayThumbnail from '../assets/hair-day-thumbnail.png';
 
 const SchoolProjects = () => {
+    const [playingIndices, setPlayingIndices] = useState(new Set());
+
+    const togglePlay = (index) => {
+        const newPlaying = new Set(playingIndices);
+        newPlaying.add(index);
+        setPlayingIndices(newPlaying);
+    };
+
     const projects = [
         {
             title: "Hair day",
-            video: "https://drive.google.com/file/d/1Wj-IUqX2DmSpsKvoiljpRlTLYe1Kve5p/preview"
+            video: "https://drive.google.com/file/d/1Wj-IUqX2DmSpsKvoiljpRlTLYe1Kve5p/preview",
+            thumbnail: hairDayThumbnail
         },
         {
             title: "2024 Orientation",
@@ -61,27 +71,58 @@ const SchoolProjects = () => {
                         }}
                         onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
                         onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                        onClick={() => !playingIndices.has(index) && togglePlay(index)}
                     >
-                        {/* Wrapper to hide Google Drive UI (pop-out button) */}
-                        <div style={{
-                            position: 'absolute',
-                            top: '-50px', // Offset to hide top bar
-                            left: '-10px',
-                            right: '-10px',
-                            bottom: '-50px',
-                            pointerEvents: 'none' // Allow title click
-                        }}>
-                            <iframe 
-                                src={project.video} 
-                                style={{
-                                    width: '100%',
-                                    height: 'calc(100% + 100px)', // Compensate for top/bottom offset
-                                    border: 'none',
-                                    pointerEvents: 'auto'
-                                }}
-                                allow="autoplay"
-                            ></iframe>
-                        </div>
+                        {playingIndices.has(index) || !project.thumbnail ? (
+                            /* Wrapper to hide Google Drive UI (pop-out button) */
+                            <div style={{
+                                position: 'absolute',
+                                top: '-50px', // Offset to hide top bar
+                                left: '-10px',
+                                right: '-10px',
+                                bottom: '-50px',
+                            }}>
+                                <iframe 
+                                    src={project.video} 
+                                    style={{
+                                        width: '100%',
+                                        height: 'calc(100% + 100px)', // Compensate for top/bottom offset
+                                        border: 'none',
+                                    }}
+                                    allow="autoplay"
+                                ></iframe>
+                            </div>
+                        ) : (
+                            /* Thumbnail Overlay */
+                            <div style={{
+                                width: '100%',
+                                height: '100%',
+                                backgroundImage: `url(${project.thumbnail})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                position: 'relative'
+                            }}>
+                                {/* Play Button Overlay */}
+                                <div style={{
+                                    width: '70px',
+                                    height: '70px',
+                                    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                                    backdropFilter: 'blur(5px)',
+                                    borderRadius: '50%',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    border: '2px solid white'
+                                }}>
+                                    <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        )}
                         
                         {/* Gradient Overlay */}
                         <div style={{
@@ -95,7 +136,8 @@ const SchoolProjects = () => {
                             alignItems: 'flex-end',
                             padding: '30px',
                             transition: 'height 0.3s ease',
-                            pointerEvents: 'none'
+                            pointerEvents: 'none',
+                            zIndex: 10
                         }}>
                             <h3 style={{
                                 color: 'white',

@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import saraiVideo1 from '../assets/sarai-video-1.mp4';
 import saraiVideo2 from '../assets/sarai-video-2.mp4';
 import saraiVideo3 from '../assets/sarai-video-3.mp4';
+import cmiThumbnail from '../assets/cmi-thumbnail.jpg';
 
 const Projects = () => {
     const tabs = ['CMI MEDIA GROUP', 'WIN WIN COFFEE', 'THE WORLD WITHIN US'];
@@ -42,7 +43,8 @@ const Projects = () => {
     const projectData = {
         'CMI MEDIA GROUP': {
             description: `I had the opportunity to work with CMI Media Group, where I contributed to content creation and brand storytelling within the healthcare marketing space.\n\nDuring this experience, I supported the development of social media content and campaign messaging, helping translate complex healthcare topics into engaging and accessible communication.\n\nThis role strengthened my ability to:\n• Adapt tone for professional and public audiences\n• Create content aligned with brand voice and strategy\n• Collaborate within a fast-paced, client-focused environment\n\nIt also gave me valuable insight into how media and communication can influence awareness and engagement in the healthcare industry.`,
-            videos: [saraiVideo1]
+            videos: [saraiVideo1],
+            thumbnail: cmiThumbnail
         },
         'WIN WIN COFFEE': {
             description: `I had the chance to work on content for Win Win Coffee, focusing on social media storytelling and product promotion.\n\nI developed engaging captions and campaign content designed to connect with audiences while maintaining a fun, relatable brand voice.\n\nThrough this project, I:\n\n• Created lifestyle-driven content to promote product launches\n• Used humor and cultural references to boost engagement\n• Strengthened my ability to write for social media audiences\n\nThis experience helped me better understand how creative content can drive brand visibility and audience interaction.`,
@@ -184,6 +186,7 @@ const Projects = () => {
                                         <video
                                             ref={el => videoRefs.current[index] = el}
                                             src={videoSrc}
+                                            poster={projectData[activeTab].thumbnail}
                                             style={{
                                                 width: '100%',
                                                 height: '100%',

@@ -1,17 +1,13 @@
 import React, { useRef, useState } from 'react';
+import interningThumbnail from '../assets/interning-thumbnail.png';
 
 const Internship = () => {
     const videoRef = useRef(null);
     const [isMuted, setIsMuted] = useState(true);
+    const [isPlaying, setIsPlaying] = useState(false);
 
     const togglePlay = () => {
-        if (videoRef.current) {
-            if (videoRef.current.paused) {
-                videoRef.current.play();
-            } else {
-                videoRef.current.pause();
-            }
-        }
+        setIsPlaying(true);
     };
 
     const toggleMute = () => {
@@ -88,25 +84,57 @@ const Internship = () => {
                     overflow: 'hidden',
                     boxShadow: '0 25px 50px rgba(0,0,0,0.2)',
                     aspectRatio: '9/16',
-                    backgroundColor: '#000'
-                }}>
-                    <div style={{
-                        position: 'absolute',
-                        top: '-5%',
-                        left: '-70%',
-                        width: '240%',
-                        height: '110%',
-                    }}>
-                        <iframe
-                            src="https://drive.google.com/file/d/1exMaunchPuA_WyiHSM8uAd2--YFVgXft/preview"
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                border: 'none'
-                            }}
-                            allow="autoplay"
-                        ></iframe>
-                    </div>
+                    backgroundColor: '#000',
+                    cursor: !isPlaying ? 'pointer' : 'default'
+                }} onClick={!isPlaying ? togglePlay : undefined}>
+                    {!isPlaying ? (
+                        <div style={{
+                            width: '100%',
+                            height: '100%',
+                            backgroundImage: `url(${interningThumbnail})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            position: 'relative'
+                        }}>
+                            {/* Play Button Overlay */}
+                            <div style={{
+                                width: '70px',
+                                height: '70px',
+                                backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                                backdropFilter: 'blur(5px)',
+                                borderRadius: '50%',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                border: '2px solid white'
+                            }}>
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                        </div>
+                    ) : (
+                        <div style={{
+                            position: 'absolute',
+                            top: '-5%',
+                            left: '-70%',
+                            width: '240%',
+                            height: '110%',
+                        }}>
+                            <iframe
+                                src="https://drive.google.com/file/d/1exMaunchPuA_WyiHSM8uAd2--YFVgXft/preview"
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    border: 'none'
+                                }}
+                                allow="autoplay"
+                            ></iframe>
+                        </div>
+                    )}
                 </div>
 
                 {/* Text Content */}
